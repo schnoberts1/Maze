@@ -1,3 +1,8 @@
+////////////////////////////////
+
+/**
+ * A ball on the screen.
+ */
 Ball = function (spec) {
     var self = {x: spec.x, y: spec.y, radius: 32, canvas: spec.canvas, step: 4, oldx: undefined, oldy: undefined};
 
@@ -46,7 +51,9 @@ Ball = function (spec) {
     return self;
 };
 
-
+/**
+ * A maze with one ball and no walls!
+ */
 Maze = function (spec) {
     var self = {canvas: $(spec.target)[0], keyResponders: {}, ball: undefined};
 
@@ -60,6 +67,8 @@ Maze = function (spec) {
         if (handler) {
             handler();
         }
+
+        e.preventDefault();
     };
 
     self.ball = self.newBall();
