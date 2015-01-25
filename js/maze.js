@@ -25,6 +25,12 @@ Maze = function (spec) {
     self.onDeviceOrientation=function (event) {
         if (event.beta && event.gamma) {
             $("#log").text("Beta: " + event.beta + " Gamma: " + event.gamma);
+            if (event.beta>10) {
+                self.pacman.up()
+            }
+            else if (event.beta<-10){
+                self.pacman.down()
+            }
         }
         else
         {
