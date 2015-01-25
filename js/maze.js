@@ -30,19 +30,19 @@ Maze = function (spec) {
 
         if (gamma > minDelta)
         {
-            self.right();
+            self.pacman.right();
         }
         else if (gamma < -minDelta)
         {
-            self.left();
+            self.pacman.left();
         }
         else if (beta > minDelta)
         {
-            self.down();
+            self.pacman.down();
         }
         else if (beta < -minDelta)
         {
-            self.up();
+            self.pacman.up();
         }
 
     }
