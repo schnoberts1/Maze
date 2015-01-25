@@ -13,7 +13,8 @@ Pacman = function (spec) {
                 step: 4,
                 oldx: undefined,
                 oldy: undefined,
-                pacmanClosed:true };
+                pacmanClosed:true,
+                direction: undefined};
 
     self.draw = function () {
         var canvas = self.canvas;
@@ -26,11 +27,13 @@ Pacman = function (spec) {
         context.fillStyle = '#0000ff';
         if(self.pacmanClosed)
         {
-            context.arc(self.x, self.y, self.radius,0,2*Math.PI)
+            context.arc(self.x, self.y, self.radius,(Math.PI / 180) * 10 + self.direction, (Math.PI / 180) * 350 + self.direction);
+            context.lineTo(self.x, self.y)
+//            context.arc(self.x, self.y, self.radius,0,2*Math.PI)
         }
         else
         {
-            context.arc(self.x, self.y, self.radius,(Math.PI / 180) * 40, (Math.PI / 180) * 320);
+            context.arc(self.x, self.y, self.radius,(Math.PI / 180) * 40 + self.direction, (Math.PI / 180) * 320 + self.direction);
             context.lineTo(self.x, self.y)
         }
 
@@ -52,18 +55,22 @@ Pacman = function (spec) {
     };
 
     self.left = function () {
+        self.direction = Math.PI;
         self.move(self.x - self.step, self.y);
     };
 
     self.right = function () {
+        self.direction = 0;
         self.move(self.x + self.step, self.y);
     };
 
     self.up = function () {
+        self.direction = 1.5 * Math.PI;
         self.move(self.x, self.y - self.step);
     };
 
     self.down = function () {
+        self.direction = Math.PI / 2;
         self.move(self.x, self.y + self.step);
     };
 
