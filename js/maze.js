@@ -24,7 +24,7 @@ Maze = function (spec) {
 
     self.onDeviceOrientation=function (event) {
         if (event.beta && event.gamma) {
-            $("#log").text("Beta: " + event.beta + " Gamma: " + event.gamma);
+            //$("#log").text("Beta: " + event.beta + " Gamma: " + event.gamma);
 
             if (Math.abs(event.beta) > Math.abs(event.gamma)) {
                 if (event.beta > 10) {
@@ -45,7 +45,7 @@ Maze = function (spec) {
         }
         else
         {
-            $("#log").text("Garbage");
+            //$("#log").text("Garbage");
         }
     }
 
