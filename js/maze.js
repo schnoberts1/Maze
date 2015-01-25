@@ -25,21 +25,27 @@ Maze = function (spec) {
 
         var minDelta = 5;
 
-        if (gamma > minDelta)
+        if (Math.abs(gamma) > Math.abs(beta))
         {
-            self.pacman.right();
+            if (gamma > minDelta)
+            {
+                self.pacman.right();
+            }
+            else if (gamma < -minDelta)
+            {
+                self.pacman.left();
+            }
         }
-        else if (gamma < -minDelta)
+        else
         {
-            self.pacman.left();
-        }
-        else if (beta > minDelta)
-        {
-            self.pacman.down();
-        }
-        else if (beta < -minDelta)
-        {
-            self.pacman.up();
+            if (beta > minDelta)
+            {
+                self.pacman.down();
+            }
+            else if (beta < -minDelta)
+            {
+                self.pacman.up();
+            }
         }
 
     }
