@@ -24,24 +24,28 @@ Maze = function (spec) {
         var beta = event.beta;
         var gamma = event.gamma;
 
-        $("#log").text("Tilt: " + alpha + " " + beta + " " + gamma);
+        $("#log").text("Tilt: beta " + beta + " gamma " + gamma);
 
         var minDelta = 10;
 
         if (gamma > minDelta)
         {
+            $("#log").text("right");
             self.pacman.right();
         }
         else if (gamma < -minDelta)
         {
+            $("#log").text("left");
             self.pacman.left();
         }
         else if (beta > minDelta)
         {
+            $("#log").text("down");
             self.pacman.down();
         }
         else if (beta < -minDelta)
         {
+            $("#log").text("up");
             self.pacman.up();
         }
 
