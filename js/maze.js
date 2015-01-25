@@ -19,9 +19,12 @@ Maze = function (spec) {
 
     self.onDeviceOrientation = function (e)
     {
+        $("#log").text("Tilt");
         var alpha = event.alpha;
         var beta = event.beta;
         var gamma = event.gamma;
+
+        $("#log").text("Tilt: " + alpha + " " + beta + " " + gamma);
 
         var minDelta = 10;
 
@@ -53,10 +56,12 @@ Maze = function (spec) {
     // we'll use keys.
     if (window.DeviceMotionEvent)
     {
+        $("#log").text("Tilt Mode");
         window.addEventListener("deviceorientation", self.onDeviceOrientation, false);
     }
     else
     {
+        $("#log").text("Keyboard Mode");
         $("body").keydown(function (e) {
             self.keyDown(e);
         });
