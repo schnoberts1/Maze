@@ -27,7 +27,8 @@ Pacman = function (spec) {
         context.fillStyle = '#0000ff';
         if(self.pacmanClosed)
         {
-            context.arc(self.x, self.y, self.radius,0,2*Math.PI)
+            context.arc(self.x, self.y, self.radius,(Math.PI / 180) * 60 + self.directionOffset , (Math.PI / 180) * 300 + self.directionOffset)
+            context.lineTo(self.x, self.y)
         }
         else
         {
